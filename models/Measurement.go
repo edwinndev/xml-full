@@ -43,6 +43,7 @@ type Quantity struct {
 	Real    Real              `xml:"dcc:real"`
 	Hybrid  []RealListXMLList `xml:"si:hybrid,omitempty"`
 }
+
 type Real struct {
 	Value string `xml:"si:value"`
 	Unit  string `xml:"si:unit"`

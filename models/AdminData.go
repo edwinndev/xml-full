@@ -17,10 +17,12 @@ type AdministrativeData struct {
 type DccSoftware struct {
 	Software Software `xml:"dcc:software"`
 }
+
 type Software struct {
 	Name    Name   `xml:"dcc:name"`
 	Release string `xml:"dcc:release"`
 }
+
 type Name struct {
 	Lang    string `xml:"lang,attr"`
 	Content string `xml:"dcc:content"`
@@ -78,9 +80,11 @@ type RespPerson struct {
 	Person     Person   `xml:"dcc:person"`
 	MainSigner bool     `xml:"dcc:mainSigner"`
 }
+
 type Person struct {
 	Name Name `xml:"dcc:name"`
 }
+
 type Customer struct {
 	Name     Name     `xml:"dcc:name"`
 	Email    string   `xml:"dcc:eMail"`
