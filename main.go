@@ -9,21 +9,19 @@ import (
 )
 
 func main() {
-	file, err := os.Create("certificate.xml")
+	xmlFile, err := os.Create("certificate.xml")
 	if err != nil {
 		log.Fatalln(err)
 	}
 
+	_, _ = xmlFile.WriteString(models.DefaultHeader())
 	data := getData()
-	xmlEnc := xml.NewEncoder(file)
-	xmlEnc.Indent("", "    ")
-	e1 := xmlEnc.Encode(data)
-	e2 := file.Close()
-	if e1 != nil {
-		fmt.Println(e1.Error())
-	}
-	if e2 != nil {
-		fmt.Println(e2.Error())
+	xmlEnc := xml.NewEncoder(xmlFile)
+	xmlEnc.Indent("", "\t")
+	err = xmlEnc.Encode(data)
+	_ = xmlFile.Close()
+	if err != nil {
+		fmt.Println(err.Error())
 	}
 }
 
